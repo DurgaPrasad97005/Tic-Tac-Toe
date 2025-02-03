@@ -4,10 +4,13 @@ let turn = "X";
 
 boxes.forEach(element => {
     element.addEventListener("click", () => {
-        Array.from(element.getElementsByClassName("boxContent"))[0].textContent = turn;
-        turn = turn == "X" ? "0" : "X";
-        playerTurn.textContent = turn;
-        checkWinner();
+        let temp = Array.from(element.getElementsByClassName("boxContent"))[0];
+        if(temp.textContent === "") {
+            temp.textContent = turn;
+            turn = turn == "X" ? "0" : "X";
+            playerTurn.textContent = turn;
+            checkWinner();
+        }
     })
 });
 
